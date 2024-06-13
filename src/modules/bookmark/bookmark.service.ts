@@ -13,7 +13,7 @@ export class BookmarkService {
   async addBookmark(userId: number, storeId: number, isBookmarked: boolean): Promise<Bookmark> {
     const isStoreExist = await this.storeRepository.existStoreById(storeId);
     if (!isStoreExist) {
-      throw new BadRequestException('존재하지 않는 매장입니다.')
+      throw new BadRequestException('존재하지 않는 매장입니다.');
     }
 
     const findBookmark = await this.bookmarkRepository.findByUserIdAndRestaurantId(userId, storeId);
